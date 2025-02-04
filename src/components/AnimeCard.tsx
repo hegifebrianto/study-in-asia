@@ -1,18 +1,18 @@
 import Link from "next/link";
 
 interface AnimeProps {
-  className?: string;
-  anime: {
-    mal_id: number;
-    title: string;
-    images: { jpg: { image_url: string } };
-    score: number;
-    synopsis: string;
-    studio: string;
-    type: string;
-  };
-}
-
+    anime: {
+      mal_id: number;
+      title: string;
+      images: { jpg: { image_url: string } };
+      score: number;
+      synopsis?: string;
+      studio?: string;  
+      type?: string;    
+      genres: { name: string }[];
+    };
+  }
+  
 const AnimeCard: React.FC<AnimeProps> = ({ anime }) => {
 //   console.log(anime, "anime");
   return (
@@ -31,7 +31,7 @@ const AnimeCard: React.FC<AnimeProps> = ({ anime }) => {
           {anime.type}
         </div>
         <div className="absolute top-2 right-2 bg-green-100 text-green-600 text-xs px-2 py-1 rounded font-semibold">
-          {anime.score} %
+          {anime.score}%
         </div>
       </div>
 

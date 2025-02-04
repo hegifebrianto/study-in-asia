@@ -21,7 +21,7 @@ export default function Home() {
     "Sci-Fi",
     "Slice of Life",
   ];
-  
+
   // Filter anime berdasarkan search query dan genre
   const filteredAnime = data?.pages.flatMap((page) => page.data) || [];
   const displayedAnime = filteredAnime.filter(
@@ -29,7 +29,9 @@ export default function Home() {
       (!searchQuery ||
         anime.title.toLowerCase().includes(searchQuery.toLowerCase())) &&
       (!selectedGenre ||
-        anime.genres.some((genre: { name: string; }) => genre.name === selectedGenre))
+        anime.genres.some(
+          (genre: { name: string }) => genre.name === selectedGenre
+        ))
   );
 
   return (
@@ -56,17 +58,18 @@ export default function Home() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-       <select
-  className="border border-gray-300 rounded-md px-4 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-blue-400"
-  value={selectedGenre}
-  onChange={(e) => setSelectedGenre(e.target.value)}
->
-  <option value="">Genres</option>
-  {genres.map((genre: string) => ( // ✅ Menentukan tipe data sebagai string
-    <option key={genre} value={genre}>{genre}</option>
-  ))}
-</select>
-
+        <select
+          className="border border-gray-300 rounded-md px-4 py-2 w-full md:w-1/4 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          value={selectedGenre}
+          onChange={(e) => setSelectedGenre(e.target.value)}
+        >
+          <option value="">Genres</option>
+          {genres.map((genre: string) => (
+            <option key={genre} value={genre}>
+              {genre}
+            </option>
+          ))}
+        </select>
       </div>
 
       <div className="anime-grid">

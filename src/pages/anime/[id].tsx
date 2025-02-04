@@ -12,12 +12,12 @@ interface AnimeDetailsProps {
     episodes: number;
     status: string;
     studio: string;
-    studios: { name: string }[]; // Perbaikan: studios sebagai array objek dengan properti name
+    studios: { name: string }[]; 
   };
 }
 
 const AnimeDetail: React.FC<AnimeDetailsProps> = ({ anime }) => {
-  console.log(anime);
+//   console.log(anime);
   const router = useRouter();
 
   if (router.isFallback) {
