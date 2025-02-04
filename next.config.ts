@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
   images: {
-    domains: ["cdn.myanimelist.net"], // Tambahkan domain ini
+    domains: ["cdn.myanimelist.net"],
   },
 };
 

@@ -10,7 +10,7 @@ export const useAnimeList = () => {
   return useInfiniteQuery({
     queryKey: ["animeList"],
     queryFn: fetchAnimeList,
-    initialPageParam: 1, // <-- Tambahkan ini
+    initialPageParam: 1, 
     getNextPageParam: (lastPage, pages) => {
       return lastPage.pagination.has_next_page ? pages.length + 1 : undefined;
     },
